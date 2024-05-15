@@ -2,3 +2,158 @@
 @tailwind components;
 @tailwind utilities;
 
+/* define root variables here */
+:root {
+  --background-color: #EBF0FA;
+}
+
+ body {
+    background: var(--background-color);
+    @apply text-gray-500 m-8;
+ }
+
+ h1, h2 {
+    @apply font-bold text-primary text-lg;
+ }
+
+ main {
+    @apply max-w-5xl my-12 mx-auto px-8;
+
+    > h2 {
+        @apply mb-4 pb-2 text-base;
+    }
+ }
+
+ p > a {
+    @apply text-primary underline;
+ }
+
+ nav {
+    @apply 
+    pb-4 
+    my-10 mx-auto
+    flex items-center gap-5
+    border-b-2 border-gray-200 
+    max-w-5xl
+    ;
+
+    a, nav span {
+        @apply text-gray-500;
+    }
+
+    a:hover {
+        @apply text-black;
+    }
+ }
+
+ main nav {
+    @apply border-0;
+ }
+
+
+ button {
+    @apply
+    px-3 py-2
+    rounded-sm
+    flex justify-between items-center gap-2
+    text-sm;
+ }
+
+ button:hover {
+    @apply bg-primary text-white;
+ }
+
+ .btn-primary {
+    @apply bg-primary text-white;
+ }
+
+ .btn-secondary {
+    @apply bg-gray-200 text-gray-900;
+ }
+
+ form {
+    @apply
+        py-4 px-7
+        bg-primary
+        bg-opacity-5
+        rounded-md
+        block
+        mx-auto
+        min-w-fit w-1/4
+    ;
+
+    label {
+        @apply block;
+    }
+
+    input, textarea, select {
+        @apply
+            block
+            mt-2 my-4 px-2 py-1
+            rounded-sm
+            w-full;
+
+    }
+            
+    button {
+        @apply block mx-auto;
+    }
+
+ }
+
+ .error {
+    @apply 
+    border-red-500 border-2
+    bg-red-50
+    text-red-800
+    py-1 px-2
+    rounded-sm
+    block
+    max-w-fit
+    my-4 mx-auto
+    ;
+ }
+
+
+ .card {
+    @apply
+        bg-white
+        shadow-sm
+        rounded-md
+        py-3 px-4 my-4
+        relative
+        overflow-hidden;
+
+        h3 {
+            @apply text-sm font-bold text-gray-700 mb-0;
+        }
+
+        p {
+            @apply text-sm my-4 leading-6;
+        }
+ }
+
+
+ .pill {
+    @apply
+    py-1 px-2 mt-3
+    inline-block
+    text-xs font-semibold;
+
+ }
+
+ .pill.high {
+    @apply bg-red-300 text-red-600;
+ }
+
+ .pill.medium {
+    @apply bg-blue-300 text-blue-600;
+ }
+
+ .pill.low {
+    @apply bg-green-300 text-green-600;
+ }
+
+ .card .pill {
+    @apply absolute bottom-0 right-0 rounded-tl-md;
+ }
