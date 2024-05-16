@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 interface Ticket {
   id: string;
   body: string;
@@ -13,8 +15,26 @@ interface TicketDetailsProps {
   params: Params;
 }
 
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const res = await fetch("http://localhost:4000/tickets");
+
+  const tickets = await res.json();
+  return tickets.map((ticket: Ticket) => ({
+    params: {
+      id: ticket.id,
+    },
+  }));
+}
+
 async function getTicket(id: string): Promise<Ticket> {
   const res = await fetch(`http://localhost:4000/tickets/${id}`);
+
+  if (!res.ok) {
+    notFound();
+  }
+
   return res.json();
 }
 
